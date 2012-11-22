@@ -29,7 +29,7 @@ class TodoApp {
     });
 
     allCompleted.on.click.add((Event e) {
-      InputElement target = e.srcElement;
+      InputElement target = e.currentTarget;
       for (Todo todo in todos) {
         if (todo.task.completed != target.checked) {
           todo.toggleCompleted();

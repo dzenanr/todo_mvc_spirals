@@ -38,7 +38,7 @@ class Tasks extends TasksGen {
   Tasks get completed => select((task) => task.completed);
   Tasks get left => select((task) => task.left);
 
-  fromJson(String json) {
+  from(String json) {
     try {
       List jsonList = JSON.parse(json);
       for (Map todo in jsonList) {
@@ -47,7 +47,7 @@ class Tasks extends TasksGen {
         add(task);
       }
     } catch (e) {
-      EntityError error = new EntityError('json');
+      var error = new ValidationError('json');
       error.message = 'Tasks not created from the JSON text: ${e}';
       errors.add(error);
     }
@@ -58,7 +58,7 @@ class Tasks extends TasksGen {
     if (validation) {
       validation = task.title.length <= 64;
       if (!validation) {
-        var error = new EntityError('pre');
+        var error = new ValidationError('pre');
         error.message =
             '${concept.codePlural}.preAdd rejects the "${task.title}" '
             'title that is longer than 64.';
@@ -66,19 +66,6 @@ class Tasks extends TasksGen {
       }
     }
     return validation;
-  }
-
-  String errorMessage() {
-    if (errors.count > 0) {
-      List<EntityError> errorList = errors.list;
-      var msgs = '';
-      for (var error in errorList) {
-        msgs = '${msgs} \n ${error.category}: ${error.message}';
-      }
-      return msgs;
-    } else {
-      return '';
-    }
   }
 
 }

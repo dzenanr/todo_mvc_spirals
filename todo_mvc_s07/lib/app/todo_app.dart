@@ -20,7 +20,7 @@ class TodoApp implements ActionReactionApi {
     String json = window.localStorage['todos'];
     if (json != null) {
       var todoList = JSON.parse(json);
-      tasks.fromJson(json);
+      tasks.from(json);
       for (Task task in tasks) {
         _add(task);
       }

@@ -26,7 +26,7 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
     String json = window.localStorage['todos'];
     if (json != null) {
       var todoList = JSON.parse(json);
-      tasks.fromJson(json);
+      tasks.from(json);
       for (Task task in tasks) {
         todos.add(task);
       }
