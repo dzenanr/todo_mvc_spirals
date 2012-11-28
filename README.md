@@ -1,6 +1,6 @@
 #Todo.Mvc
 
-## Categories: MVC, Dartling, DOM
+## Categories: MVC, dartling, DOM
 
 ## Description
 
@@ -10,8 +10,9 @@ by [Mathieu Lorber] (https://github.com/MathieuLorber/todomvc).
 Spirals are used to show a transition from TodoMVC in Dart to Todo.Mvc in Dartling.
 
 The todo_mvc_spirals project is just a collection of spirals.
-Each spiral is a separate Dart Editor project. 
-After cloning todo_mvc_spirals, open each spiral in Dart Editor with the Pub.
+Each spiral is a separate Dart Editor application. 
+After cloning todo_mvc_spirals, open each spiral in Dart Editor with Pub,
+or open the todo_mvc_spirals project, select a spiral and use Tools/Pub Install or later Update.
 
 
 
