@@ -2,7 +2,7 @@ part of todo_mvc_app;
 
 class TodoApp {
   Tasks tasks;
-  List<TodoWidget> todoWidgets = new List<TodoWidget>();
+  var todoWidgets = new List<TodoWidget>();
   Element todoListElement = query('#todo-list');
   Element footerElement = query('#footer');
   Element countElement = query('#todo-count');

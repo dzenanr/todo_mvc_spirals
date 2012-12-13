@@ -2,7 +2,7 @@ part of todo_mvc_app;
 
 class TodoApp {
   Tasks tasks;
-  List<Todo> todos = new List<Todo>();
+  var todos = new List<Todo>();
   Element todoList = query('#todo-list');
   Element footer = query('#footer');
   Element todoCount = query('#todo-count');
@@ -57,7 +57,8 @@ class TodoApp {
           add(task);
         }
       } catch (e) {
-        window.console.log('Could not load todos from the local storage. ${e}');
+        window.console.log(
+            'Could not load todos from the local storage. ${e}');
       }
     }
   }

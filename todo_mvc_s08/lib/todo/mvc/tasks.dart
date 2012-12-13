@@ -6,14 +6,6 @@ class Task extends TaskGen {
 
   Task(Concept concept) : super(concept);
 
-  fromJson(Map json) {
-    title = json['title'];
-    String completedString = json['completed'];
-    if (completedString.trim() == 'true') {
-      completed = true;
-    }
-  }
-
   bool get left => !completed;
 
   bool get generate =>
