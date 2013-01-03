@@ -2,7 +2,7 @@ part of todo_mvc_app;
 
 class Todos {
   Tasks tasks;
-  List<Todo> todos = new List<Todo>();
+  var todos = new List<Todo>();
 
   Element main = query('#main');
   Element allCompleted = query('#toggle-all-completed');
@@ -102,7 +102,7 @@ class Todos {
 
   updateCounts() {
     allCompleted.checked = (tasks.completed == tasks.count);
-    leftCount.innerHTML =
+    leftCount.innerHtml =
         '<b>${tasks.left}</b> todo${tasks.left != 1 ? 's' : ''} left';
     if (tasks.completed == 0) {
           clearCompleted.style.display = 'none';

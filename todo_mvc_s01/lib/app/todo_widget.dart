@@ -11,7 +11,7 @@ class TodoWidget {
 		element = new Element.html('''
 			<li ${task.completed ? 'class="completed"' : ''}>
 			  <div class='view'>
-			    <input class='toggle' type='checkbox' 
+			    <input class='toggle' type='checkbox'
 			      ${task.completed ? 'checked' : ''}>
 			    <label class='todo-content'>${task.title}</label>
 			  </div>

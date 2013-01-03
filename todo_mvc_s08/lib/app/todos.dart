@@ -63,6 +63,7 @@ class Todos {
         break;
       default:
         showAll();
+        break;
     }
   }
 

@@ -12,7 +12,8 @@ class Todo {
     todo = new Element.html('''
       <li ${task.completed ? 'class="completed"' : ''}>
         <div class='view'>
-          <input class='toggle-completed' type='checkbox' ${task.completed ? 'checked' : ''}>
+          <input class='toggle-completed' type='checkbox'
+            ${task.completed ? 'checked' : ''}>
           <label class='todo-content'>${task.title}</label>
           <button class='remove'></button>
         </div>
