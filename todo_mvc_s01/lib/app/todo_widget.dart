@@ -3,7 +3,7 @@ part of todo_mvc_app;
 class TodoWidget {
 	Task task;
 	Element element;
-	Element toggleElement;
+	InputElement toggleElement;
 
 	TodoWidget(this.task);
 

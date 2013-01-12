@@ -4,7 +4,7 @@ class TodoWidget {
   Task task;
   TodoApp todoApp;
   Element element;
-  Element toggleElement;
+  InputElement toggleElement;
 
   TodoWidget(this.task, this.todoApp);
 

@@ -5,7 +5,7 @@ class Todos {
   var todos = new List<Todo>();
 
   Element main = query('#main');
-  Element allCompleted = query('#toggle-all-completed');
+  InputElement allCompleted = query('#toggle-all-completed');
   Element todoList = query('#todo-list');
   Element footer = query('#footer');
   Element leftCount = query('#left-count');
@@ -14,7 +14,7 @@ class Todos {
   Todos(this.tasks) {
     load();
 
-    Element newTodo = query('#new-todo');
+    InputElement newTodo = query('#new-todo');
     newTodo.on.keyPress.add((KeyboardEvent e) {
       if (e.keyCode == KeyCode.ENTER) {
         var title = newTodo.value.trim();

@@ -4,7 +4,7 @@ class Todo {
   Task task;
   TodoApp todoApp;
   Element todo;
-  Element toggle;
+  InputElement toggle;
 
   Todo(this.task, this.todoApp);
 

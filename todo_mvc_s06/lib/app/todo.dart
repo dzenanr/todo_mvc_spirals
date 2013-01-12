@@ -4,7 +4,7 @@ class Todo {
   Task task;
   Todos todos;
   Element todo;
-  Element toggle;
+  InputElement toggle;
 
   Todo(this.task, this.todos);
 
@@ -22,7 +22,7 @@ class Todo {
     ''');
 
     Element todoContent = todo.query('.todo-content');
-    Element edit = todo.query('.edit');
+    InputElement edit = todo.query('.edit');
 
     todoContent.on.doubleClick.add((MouseEvent e) {
       todo.classes.add('editing');
