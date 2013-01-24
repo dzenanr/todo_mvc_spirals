@@ -50,7 +50,7 @@ class TodoApp {
     var json = window.localStorage['todos'];
     if (json != null) {
       try {
-        var todoList = JSON.parse(json);
+        var todoList = parse(json);
         for (Map todo in todoList) {
           var task = new Task(tasks.concept);
           task.fromJson(todo);
@@ -64,7 +64,7 @@ class TodoApp {
   }
 
   save() {
-    window.localStorage['todos'] = JSON.stringify(tasks.toJson());
+    window.localStorage['todos'] = stringify(tasks.toJson());
   }
 
   add(Task task) {
@@ -88,7 +88,7 @@ class TodoApp {
   }
 
   updateTodoCount() {
-    todoCount.innerHTML =
+    todoCount.innerHtml =
         '<b>${tasks.left}</b> item${tasks.left != 1 ? 's' : ''} left';
     save();
   }

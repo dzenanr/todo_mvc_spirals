@@ -64,7 +64,7 @@ class TodoApp {
   }
 
   updateCount() {
-    countElement.innerHTML =
+    countElement.innerHtml =
         '<b>${tasks.left}</b> item${tasks.left != 1 ? 's' : ''} left';
   }
 

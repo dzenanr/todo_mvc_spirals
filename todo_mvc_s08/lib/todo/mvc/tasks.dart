@@ -32,7 +32,7 @@ class Tasks extends TasksGen {
 
   from(String json) {
     try {
-      List jsonList = JSON.parse(json);
+      List jsonList = parse(json);
       for (Map todo in jsonList) {
         var task = new Task(concept);
         task.fromJson(todo);
