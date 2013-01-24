@@ -14,7 +14,7 @@ class Todos {
     todo.remove();
   }
 
-  Iterator<Todo> iterator() => todoList.iterator();
+  Iterator<Todo> get iterator => todoList.iterator;
 
   int count() {
     return todoList.length;

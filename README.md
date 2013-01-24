@@ -11,8 +11,7 @@ Spirals are used to show a transition from TodoMVC in Dart to Todo.Mvc in Dartli
 
 The todo_mvc_spirals project is just a collection of spirals.
 Each spiral is a separate Dart Editor application. 
-After cloning todo_mvc_spirals, open each spiral in Dart Editor with Pub,
-or open the todo_mvc_spirals project, select a spiral and use Tools/Pub Install or later Update.
+After cloning todo_mvc_spirals, open each spiral in Dart Editor with Pub.
 
 
 
