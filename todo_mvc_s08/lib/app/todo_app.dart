@@ -93,7 +93,7 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
   }
 
   _updateFooter() {
-    var display = tasks.count == 0 ? 'none' : 'block';
+    var display = tasks.length == 0 ? 'none' : 'block';
     completeAll.style.display = display;
     main.style.display = display;
     footer.style.display = display;

@@ -101,7 +101,7 @@ class TodoApp {
   }
 
   updateCounts() {
-    allCompleted.checked = (tasks.completed == tasks.count);
+    allCompleted.checked = (tasks.completed == tasks.length);
     todoCount.innerHtml =
         '<b>${tasks.left}</b> todo${tasks.left != 1 ? 's' : ''} left';
     if (tasks.completed == 0) {

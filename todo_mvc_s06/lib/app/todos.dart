@@ -101,7 +101,7 @@ class Todos {
   }
 
   updateCounts() {
-    allCompleted.checked = (tasks.completed == tasks.count);
+    allCompleted.checked = (tasks.completed == tasks.length);
     leftCount.innerHtml =
         '<b>${tasks.left}</b> todo${tasks.left != 1 ? 's' : ''} left';
     if (tasks.completed == 0) {

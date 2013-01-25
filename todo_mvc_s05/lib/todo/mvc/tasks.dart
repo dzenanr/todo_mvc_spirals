@@ -12,7 +12,7 @@ class Tasks extends TasksGen {
 
   Tasks(Concept concept) : super(concept);
 
-  int get completed => select((task) => task.completed).count;
-  int get left => count - completed;
+  int get completed => select((task) => task.completed).length;
+  int get left => length - completed;
 
 }
