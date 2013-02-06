@@ -26,12 +26,12 @@ class Todo {
     title = todo.query('#title');
     InputElement edit = todo.query('.edit');
 
-    title.on.doubleClick.add((MouseEvent e) {
+    title.onDoubleClick.listen((MouseEvent e) {
       todo.classes.add('editing');
       edit.select();
     });
 
-    edit.on.keyPress.add((KeyboardEvent e) {
+    edit.onKeyPress.listen((KeyboardEvent e) {
       if (e.keyCode == KeyCode.ENTER) {
         var title = edit.value.trim();
         if (title != '') {
@@ -43,13 +43,13 @@ class Todo {
     });
 
     completed = todo.query('.completed');
-    completed.on.click.add((MouseEvent e) {
+    completed.onClick.listen((MouseEvent e) {
       var action = new SetAttributeAction(
           session, task, 'completed', !task.completed);
       action.doit();
     });
 
-    todo.query('.remove').on.click.add((MouseEvent e) {
+    todo.query('.remove').onClick.listen((MouseEvent e) {
       var action = new RemoveAction(session, tasks, task);
       action.doit();
     });

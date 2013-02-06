@@ -35,7 +35,7 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
     }
 
     InputElement newTodo = query('#new-todo');
-    newTodo.on.keyPress.add((KeyboardEvent e) {
+    newTodo.onKeyPress.listen((KeyboardEvent e) {
       if (e.keyCode == KeyCode.ENTER) {
         var title = newTodo.value.trim();
         if (title != '') {
@@ -49,7 +49,7 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
       }
     });
 
-    completeAll.on.click.add((Event e) {
+    completeAll.onClick.listen((Event e) {
       if (tasks.left.length == 0) {
         for (Task task in tasks) {
           var action = new SetAttributeAction(
@@ -65,7 +65,7 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
       }
     });
 
-    clearCompleted.on.click.add((MouseEvent e) {
+    clearCompleted.onClick.listen((MouseEvent e) {
       for (Task task in tasks.completed) {
         var action = new RemoveAction(session, tasks.completed, task);
         action.doit();
@@ -73,12 +73,12 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
     });
 
     undo.style.display = 'none';
-    undo.on.click.add((MouseEvent e) {
+    undo.onClick.listen((MouseEvent e) {
       session.past.undo();
     });
 
     redo.style.display = 'none';
-    redo.on.click.add((MouseEvent e) {
+    redo.onClick.listen((MouseEvent e) {
       session.past.redo();
     });
   }

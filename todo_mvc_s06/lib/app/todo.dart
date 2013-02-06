@@ -24,7 +24,7 @@ class Todo {
     Element todoContent = todo.query('.todo-content');
     InputElement edit = todo.query('.edit');
 
-    todoContent.on.doubleClick.add((MouseEvent e) {
+    todoContent.onDoubleClick.listen((MouseEvent e) {
       todo.classes.add('editing');
       edit.select();
       //edit.selectionStart = task.title.length;
@@ -40,19 +40,19 @@ class Todo {
       }
     }
 
-    edit.on.keyPress.add((KeyboardEvent e) {
+    edit.onKeyPress.listen((KeyboardEvent e) {
       if (e.keyCode == KeyCode.ENTER) {
         editingDone(e);
       }
     });
 
     toggle = todo.query('.toggle-completed');
-    toggle.on.click.add((MouseEvent e) {
+    toggle.onClick.listen((MouseEvent e) {
       toggleCompleted();
       todos.updateCounts();
     });
 
-    todo.query('.remove').on.click.add((MouseEvent e) {
+    todo.query('.remove').onClick.listen((MouseEvent e) {
       todos.remove(this);
     });
 

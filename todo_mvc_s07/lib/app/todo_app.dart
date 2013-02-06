@@ -28,7 +28,7 @@ class TodoApp implements ActionReactionApi {
     }
 
     InputElement newTodo = query('#new-todo');
-    newTodo.on.keyPress.add((KeyboardEvent e) {
+    newTodo.onKeyPress.listen((KeyboardEvent e) {
       if (e.keyCode == KeyCode.ENTER) {
         var title = newTodo.value.trim();
         if (title != '') {
@@ -41,7 +41,7 @@ class TodoApp implements ActionReactionApi {
       }
     });
 
-    completeAll.on.click.add((Event e) {
+    completeAll.onClick.listen((Event e) {
       if (tasks.left.length == 0) {
         for (Task task in tasks) {
           var action = new SetAttributeAction(
@@ -57,7 +57,7 @@ class TodoApp implements ActionReactionApi {
       }
     });
 
-    clearCompleted.on.click.add((MouseEvent e) {
+    clearCompleted.onClick.listen((MouseEvent e) {
       for (Task task in tasks.completed) {
         var action = new RemoveAction(session, tasks.completed, task);
         action.doit();

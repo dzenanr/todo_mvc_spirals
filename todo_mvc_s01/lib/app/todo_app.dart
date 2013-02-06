@@ -12,7 +12,7 @@ class TodoApp {
     tasks = mvc.getEntry('Task');
 
     InputElement newTodoElement = query('#new-todo');
-    newTodoElement.on.keyPress.add((KeyboardEvent e) {
+    newTodoElement.onKeyPress.listen((KeyboardEvent e) {
       if (e.keyCode == KeyCode.ENTER) {
         var title = newTodoElement.value.trim();
         if (title != '') {

@@ -20,12 +20,12 @@ class Todo {
     ''');
 
     toggle = todo.query('.toggle');
-    toggle.on.click.add((MouseEvent e) {
+    toggle.onClick.listen((MouseEvent e) {
       toggleTodo();
       todoApp.updateTodoCount();
     });
 
-    todo.query('.remove').on.click.add((MouseEvent e) {
+    todo.query('.remove').onClick.listen((MouseEvent e) {
       todoApp.remove(this);
     });
 

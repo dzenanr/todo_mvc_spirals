@@ -15,7 +15,7 @@ class Todos {
     load();
 
     InputElement newTodo = query('#new-todo');
-    newTodo.on.keyPress.add((KeyboardEvent e) {
+    newTodo.onKeyPress.listen((KeyboardEvent e) {
       if (e.keyCode == KeyCode.ENTER) {
         var title = newTodo.value.trim();
         if (title != '') {
@@ -28,7 +28,7 @@ class Todos {
       }
     });
 
-    allCompleted.on.click.add((Event e) {
+    allCompleted.onClick.listen((Event e) {
       InputElement target = e.currentTarget;
       for (Todo todo in todos) {
         if (todo.task.completed != target.checked) {
@@ -38,7 +38,7 @@ class Todos {
       updateCounts();
     });
 
-    clearCompleted.on.click.add((MouseEvent e) {
+    clearCompleted.onClick.listen((MouseEvent e) {
       var completedTodos = new List<Todo>();
       var leftTodos = new List<Todo>();
       for (Todo todo in todos) {

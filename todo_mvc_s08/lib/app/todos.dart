@@ -14,7 +14,7 @@ class Todos {
   Todos(this.todoApp) {
     session = todoApp.session;
     tasks = todoApp.tasks;
-    window.on.hashChange.add((e) => updateFilter());
+    window.onHashChange.listen((e) => updateFilter());
   }
 
   Todo _find(Task task) {

@@ -19,7 +19,7 @@ class TodoWidget {
     ''');
 
     toggleElement = element.query('.toggle');
-    toggleElement.on.click.add((MouseEvent e) {
+    toggleElement.onClick.listen((MouseEvent e) {
       toggle();
       todoApp.updateCount();
     });
