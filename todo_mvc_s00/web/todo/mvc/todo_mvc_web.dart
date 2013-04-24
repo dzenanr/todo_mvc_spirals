@@ -4,7 +4,7 @@ import "dart:html";
 import "dart:isolate";
 
 import "package:dartling/dartling.dart";
-import "package:dartling/dartling_app.dart";
+import 'package:dartling_default_app/dartling_default_app.dart';
 
 import "package:todo_mvc/todo_mvc.dart";
 
