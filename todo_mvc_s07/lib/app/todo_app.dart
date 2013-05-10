@@ -75,7 +75,7 @@ class TodoApp implements ActionReactionApi {
   }
 
   _remove(Task task) {
-    for (Todo todo in todos) {
+    for (Todo todo in todos.toList()) {
       if (todo.task == task) {
         todos.remove(todo);
       }

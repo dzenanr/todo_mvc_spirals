@@ -30,7 +30,8 @@ class Todos {
   remove(Task task) {
     var todo = _find(task);
     if (todo != null) {
-      _todoList.removeAt(_todoList.indexOf(todo));
+      //_todoList.removeAt(_todoList.indexOf(todo));
+      _todoList.remove(todo);
       todo.remove();
     }
   }

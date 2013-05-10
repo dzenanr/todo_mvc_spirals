@@ -15,6 +15,8 @@ class Todos {
   }
 
   Iterator<Todo> get iterator => todoList.iterator;
+  
+  List<Todo> toList() => todoList.toList();
 
   int count() {
     return todoList.length;
