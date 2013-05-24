@@ -25,7 +25,7 @@ class Tasks extends TasksGen {
 
   Tasks(Concept concept) : super(concept);
 
-  int get completed => select((task) => task.completed).length;
+  int get completed => selectWhere((task) => task.completed).length;
   int get left => length - completed;
 
   bool preAdd(Task task) {
