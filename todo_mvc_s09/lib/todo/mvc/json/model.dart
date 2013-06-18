@@ -3,10 +3,6 @@ part of todo_mvc;
 // http://www.json.org/
 // http://jsonformatter.curiousconcept.com/
 
-// rename dartling to yourDomainName
-// rename Skeleton to YourModelName
-// do not change model or Model
-
 // lib/dartling/skeleton/json/model.dart
 
 var todoMvcModelJson = r'''
@@ -30,6 +26,8 @@ var todoMvcModelJson = r'''
                     "category":"required",
                     "name":"title",
                     "type":"String",
+                    "essential":true,
+                    "sensitive":false,
                     "init":""
                 },
                 {
@@ -37,6 +35,8 @@ var todoMvcModelJson = r'''
                     "category":"required",
                     "name":"completed",
                     "type":"bool",
+                    "essential":true,
+                    "sensitive":false,
                     "init":"false"
                 }
             ]

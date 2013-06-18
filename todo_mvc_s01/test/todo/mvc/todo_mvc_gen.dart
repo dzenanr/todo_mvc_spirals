@@ -10,14 +10,10 @@ import "package:todo_mvc/todo_mvc.dart";
 genCode() {
   var repo = new Repo();
 
-  // change "Dartling" to "YourDomainName"
   var todoDomain = new Domain("Todo");
 
-  // change dartling to yourDomainName
-  // change Skeleton to YourModelName
-  // change "Skeleton" to "YourModelName"
   Model todoMvcModel =
-      fromMagicBoxes(todoMvcModelJson, todoDomain, "Mvc");
+      fromJsonToModel(todoMvcModelJson, todoDomain, "Mvc");
 
   repo.domains.add(todoDomain);
 
