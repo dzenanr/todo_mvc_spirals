@@ -3,8 +3,8 @@ part of todo_mvc_app;
 class Todo {
   Task task;
 
-  DomainSession _session;
   Tasks _tasks;
+  DomainSession _session;
 
   Element _todo;
   InputElement _completed;
