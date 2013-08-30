@@ -19,7 +19,7 @@ class TodoApp implements ActionReactionApi {
     //load todos
     String json = window.localStorage['todos'];
     if (json != null) {
-      var todoList = parse(json);
+      var todoList = JSON.decode(json);
       tasks.from(json);
       for (Task task in tasks) {
         _add(task);
@@ -66,7 +66,7 @@ class TodoApp implements ActionReactionApi {
   }
 
   _save() {
-    window.localStorage['todos'] = stringify(tasks.toJson());
+    window.localStorage['todos'] = JSON.encode(tasks.toJson());
   }
 
   _add(Task task) {
@@ -121,14 +121,15 @@ class TodoApp implements ActionReactionApi {
 
   react(BasicAction action) {
     if (action is AddAction) {
-      _add(action.entity);
+      _add((action as AddAction).entity);
     } else if (action is RemoveAction) {
-      _remove(action.entity);
+      _remove((action as RemoveAction).entity);
     } else if (action is SetAttributeAction) {
-      if (action.property == 'completed') {
-        _completeTodo(action.entity);
-      } else if (action.property == 'title') {
-        _retitleTodo(action.entity);
+      SetAttributeAction setAttributeAction = action;
+      if (setAttributeAction.property == 'completed') {
+        _completeTodo(setAttributeAction.entity);
+      } else if (setAttributeAction.property == 'title') {
+        _retitleTodo(setAttributeAction.entity);
       }
     }
     _updateFooter();

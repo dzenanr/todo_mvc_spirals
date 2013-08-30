@@ -63,7 +63,7 @@ class TodoApp {
     var json = window.localStorage['todos'];
     if (json != null) {
       try {
-        var todoList = parse(json);
+        var todoList = JSON.decode(json);
         for (Map todo in todoList) {
           var task = new Task(tasks.concept);
           task.fromJson(todo);
@@ -76,7 +76,7 @@ class TodoApp {
   }
 
   save() {
-    window.localStorage['todos'] = stringify(tasks.toJson());
+    window.localStorage['todos'] = JSON.encode(tasks.toJson());
   }
 
   add(Task task) {

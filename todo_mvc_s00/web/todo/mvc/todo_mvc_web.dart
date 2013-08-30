@@ -1,7 +1,6 @@
 // web/todo/mvc/todo_mvc_web.dart
 
 import "dart:html";
-import "dart:isolate";
 
 import "package:dartling/dartling.dart";
 import 'package:dartling_default_app/dartling_default_app.dart';

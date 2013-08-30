@@ -116,22 +116,22 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
     if (action is AddAction) {
       _displayAction(action);
       if (action.state == 'undone') {
-        todos.remove(action.entity);
+        todos.remove((action as AddAction).entity);
       } else {
-        todos.add(action.entity);
+        todos.add((action as AddAction).entity);
       }
     } else if (action is RemoveAction) {
       _displayAction(action);
       if (action.state == 'undone') {
-        todos.add(action.entity);
+        todos.add((action as RemoveAction).entity);
       } else {
-        todos.remove(action.entity);
+        todos.remove((action as RemoveAction).entity);
       }
     } else if (action is SetAttributeAction) {
-      if (action.property == 'completed') {
-        todos.complete(action.entity);
-      } else if (action.property == 'title') {
-        todos.retitle(action.entity);
+      if ((action as SetAttributeAction).property == 'completed') {
+        todos.complete((action as SetAttributeAction).entity);
+      } else if ((action as SetAttributeAction).property == 'title') {
+        todos.retitle((action as SetAttributeAction).entity);
       }
     }
     _updateFooter();
@@ -156,20 +156,21 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
 
   _displayAction(BasicAction action) {
     if (action is AddAction) {
-      Task task = action.entity;
-      task.display(prefix: 'add');
       AddAction addAction = action;
+      Task task = addAction.entity;
+      task.display(prefix: 'add');
       print(addAction.toString());
     } else if (action is RemoveAction) {
-      Task task = action.entity;
-      task.display(prefix: 'remove');
       RemoveAction removeAction = action;
+      Task task = removeAction.entity;
+      task.display(prefix: 'remove');   
       print(removeAction.toString());
     } else if (action is SetAttributeAction) {
-      if (action.property == 'completed') {
-        todos.complete(action.entity);
-      } else if (action.property == 'title') {
-        todos.retitle(action.entity);
+      SetAttributeAction setAttributeAction = action;
+      if (setAttributeAction.property == 'completed') {
+        todos.complete(setAttributeAction.entity);
+      } else if (setAttributeAction.property == 'title') {
+        todos.retitle(setAttributeAction.entity);
       }
     }
   }
