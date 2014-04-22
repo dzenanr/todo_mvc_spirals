@@ -1,8 +1,5 @@
 // test/todo/mvc/todo_mvc_gen.dart
 
-import "dart:json";
-import "dart:math";
-
 import "package:dartling/dartling.dart";
 
 import "package:todo_mvc/todo_mvc.dart";

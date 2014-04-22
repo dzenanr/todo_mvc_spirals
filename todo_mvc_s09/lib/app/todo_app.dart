@@ -5,14 +5,14 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
   Tasks tasks;
 
   Todos _todos;
-  Element _main = query('#main');
-  InputElement _completeAll = query('#complete-all');
-  Element _footer = query('#footer');
-  Element _leftCount = query('#left-count');
-  Element _clearCompleted = query('#clear-completed');
-  Element _undo = query('#undo');
-  Element _redo = query('#redo');
-  Element _errors = query('#errors');
+  Element _main = querySelector('#main');
+  InputElement _completeAll = querySelector('#complete-all');
+  Element _footer = querySelector('#footer');
+  Element _leftCount = querySelector('#left-count');
+  Element _clearCompleted = querySelector('#clear-completed');
+  Element _undo = querySelector('#undo');
+  Element _redo = querySelector('#redo');
+  Element _errors = querySelector('#errors');
 
   TodoApp(TodoModels domain) {
     session = domain.newSession();
@@ -25,14 +25,14 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
     //load todos
     String json = window.localStorage['todos'];
     if (json != null) {
-      tasks.fromJson(JSON.decode(json));
+      tasks.fromJson(json);
       for (Task task in tasks) {
         _todos.add(task);
       }
       _updateFooter();
     }
 
-    InputElement newTodo = query('#new-todo');
+    InputElement newTodo = querySelector('#new-todo');
     newTodo.onKeyPress.listen((KeyboardEvent e) {
       if (e.keyCode == KeyCode.ENTER) {
         var title = newTodo.value.trim();
@@ -121,20 +121,20 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
 
     if (action is AddAction) {
       if (action.undone) {
-        _todos.remove((action as AddAction).entity);
+        _todos.remove(action.entity);
       } else {
-        _todos.add((action as AddAction).entity);
+        _todos.add(action.entity);
       }
     } else if (action is RemoveAction) {
       if (action.undone) {
-        _todos.add((action as RemoveAction).entity);
+        _todos.add(action.entity);
       } else {
-        _todos.remove((action as RemoveAction).entity);
+        _todos.remove(action.entity);
       }
     } else if (action is SetAttributeAction) {
       updateTodo(action);
     } else if (action is Transaction) {
-      for (var transactionAction in (action as Transaction).past.actions) {
+      for (var transactionAction in action.past.actions) {
         if (transactionAction is SetAttributeAction) {
           updateTodo(transactionAction);
         }
