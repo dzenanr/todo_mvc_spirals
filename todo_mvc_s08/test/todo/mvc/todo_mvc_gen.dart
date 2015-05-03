@@ -9,8 +9,7 @@ genCode() {
 
   var todoDomain = new Domain("Todo");
 
-  Model todoMvcModel =
-      fromJsonToModel(todoMvcModelJson, todoDomain, "Mvc");
+  fromJsonToModel(todoMvcModelJson, todoDomain, "Mvc");
 
   repo.domains.add(todoDomain);
 

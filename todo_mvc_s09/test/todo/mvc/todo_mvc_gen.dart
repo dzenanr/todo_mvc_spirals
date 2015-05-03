@@ -13,8 +13,7 @@ genCode() {
   // change dartling to yourDomainName
   // change Skeleton to YourModelName
   // change "Skeleton" to "YourModelName"
-  Model todoMvcModel =
-      fromJsonToModel(todoMvcModelJson, todoDomain, "Mvc");
+  fromJsonToModel(todoMvcModelJson, todoDomain, "Mvc");
 
   repo.domains.add(todoDomain);
 
