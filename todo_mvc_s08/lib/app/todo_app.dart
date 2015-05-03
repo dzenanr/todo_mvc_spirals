@@ -5,14 +5,14 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
   Tasks tasks;
 
   Todos todos;
-  Element main = query('#main');
-  InputElement completeAll = query('#complete-all');
-  Element footer = query('#footer');
-  Element leftCount = query('#left-count');
-  Element clearCompleted = query('#clear-completed');
-  Element undo = query('#undo');
-  Element redo = query('#redo');
-  Element errors = query('#errors');
+  Element main = querySelector('#main');
+  InputElement completeAll = querySelector('#complete-all');
+  Element footer = querySelector('#footer');
+  Element leftCount = querySelector('#left-count');
+  Element clearCompleted = querySelector('#clear-completed');
+  Element undo = querySelector('#undo');
+  Element redo = querySelector('#redo');
+  Element errors = querySelector('#errors');
 
   TodoApp(TodoModels domain) {
     session = domain.newSession();
@@ -25,8 +25,7 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
     //load todos
     String json = window.localStorage['todos'];
     if (json != null) {
-      var todoList = parse(json);
-      tasks.from(json);
+      tasks.fromJson(json);
       for (Task task in tasks) {
         todos.add(task);
       }
@@ -34,7 +33,7 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
       displayErrorsIfAny();
     }
 
-    InputElement newTodo = query('#new-todo');
+    InputElement newTodo = querySelector('#new-todo');
     newTodo.onKeyPress.listen((KeyboardEvent e) {
       if (e.keyCode == KeyCode.ENTER) {
         var title = newTodo.value.trim();
@@ -89,7 +88,7 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
   }
 
   _save() {
-    window.localStorage['todos'] = stringify(tasks.toJson());
+    window.localStorage['todos'] = tasks.toJson();
   }
 
   _updateFooter() {
@@ -116,22 +115,22 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
     if (action is AddAction) {
       _displayAction(action);
       if (action.state == 'undone') {
-        todos.remove((action as AddAction).entity);
+        todos.remove(action.entity);
       } else {
-        todos.add((action as AddAction).entity);
+        todos.add(action.entity);
       }
     } else if (action is RemoveAction) {
       _displayAction(action);
       if (action.state == 'undone') {
-        todos.add((action as RemoveAction).entity);
+        todos.add(action.entity);
       } else {
-        todos.remove((action as RemoveAction).entity);
+        todos.remove(action.entity);
       }
     } else if (action is SetAttributeAction) {
-      if ((action as SetAttributeAction).property == 'completed') {
-        todos.complete((action as SetAttributeAction).entity);
-      } else if ((action as SetAttributeAction).property == 'title') {
-        todos.retitle((action as SetAttributeAction).entity);
+      if (action.property == 'completed') {
+        todos.complete(action.entity);
+      } else if (action.property == 'title') {
+        todos.retitle(action.entity);
       }
     }
     _updateFooter();

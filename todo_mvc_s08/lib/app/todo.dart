@@ -27,8 +27,8 @@ class Todo {
       </li>
     ''');
 
-    title = todo.query('#title');
-    InputElement edit = todo.query('.edit');
+    title = todo.querySelector('#title');
+    InputElement edit = todo.querySelector('.edit');
 
     title.onDoubleClick.listen((MouseEvent e) {
       todo.classes.add('editing');
@@ -46,14 +46,14 @@ class Todo {
       }
     });
 
-    completed = todo.query('.completed');
+    completed = todo.querySelector('.completed');
     completed.onClick.listen((MouseEvent e) {
       var action = new SetAttributeAction(
           session, task, 'completed', !task.completed);
       action.doit();
     });
 
-    todo.query('.remove').onClick.listen((MouseEvent e) {
+    todo.querySelector('.remove').onClick.listen((MouseEvent e) {
       var action = new RemoveAction(session, tasks, task);
       action.doit();
     });

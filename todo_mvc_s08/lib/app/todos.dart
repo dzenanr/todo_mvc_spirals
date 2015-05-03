@@ -6,10 +6,10 @@ class Todos {
   Tasks tasks;
 
   List<Todo> todoList = new List<Todo>();
-  Element todoElements = query('#todo-list');
-  Element allElements = query('#filters a[href="#/"]');
-  Element leftElements = query('#filters a[href="#/left"]');
-  Element completedElements = query('#filters a[href="#/completed"]');
+  Element todoElements = querySelector('#todo-list');
+  Element allElements = querySelector('#filters a[href="#/"]');
+  Element leftElements = querySelector('#filters a[href="#/left"]');
+  Element completedElements = querySelector('#filters a[href="#/completed"]');
 
   Todos(this.todoApp) {
     session = todoApp.session;

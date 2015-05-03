@@ -62,9 +62,10 @@ testTodoMvc(Repo repo, String domainCode, String modelCode) {
       entries.displayJson();
     });
     test('From JSON to Task Model', () {
+      var json = entries.toJson();
       tasks.clear();
       expect(tasks.isEmpty, isTrue);
-      entries.fromJsonToData();
+      entries.fromJson(json);
       expect(tasks.isEmpty, isFalse);
       tasks.display(title:'From JSON to Task Model');
     });

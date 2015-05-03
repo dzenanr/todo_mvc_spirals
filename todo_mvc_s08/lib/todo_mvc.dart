@@ -35,8 +35,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 library todo_mvc;
 
-import "dart:json";
-
 import "package:dartling/dartling.dart";
 
 part "todo/mvc/json/data.dart";

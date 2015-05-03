@@ -80,7 +80,7 @@ class TodoApp implements ActionReactionApi, PastReactionApi {
   }
 
   _save() {
-    window.localStorage['todos'] = JSON.encode(tasks.toJson());
+    window.localStorage['todos'] = tasks.toJson();
   }
 
   _possibleErrors() {

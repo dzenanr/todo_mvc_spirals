@@ -30,6 +30,7 @@ class Tasks extends TasksGen {
   Tasks get completed => selectWhere((task) => task.completed);
   Tasks get left => selectWhere((task) => task.left);
 
+  /*
   from(String json) {
     try {
       List jsonList = parse(json);
@@ -44,6 +45,7 @@ class Tasks extends TasksGen {
       errors.add(error);
     }
   }
+  */
 
   bool preAdd(Task task) {
     bool validation = super.preAdd(task);
